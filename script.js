@@ -41,4 +41,40 @@ function operate(op, num1, num2) {
     }
 }
 
-console.log(operate(operator, num1, num2 ))
+// console.log(operate(operator, num1, num2 ))
+
+
+// NUMBERS  
+let one = document.querySelector("#one");
+let two = document.querySelector("#two");
+let three = document.querySelector("#three");
+let four = document.querySelector("#four");
+let five = document.querySelector("#five");
+let six = document.querySelector("#six");
+let seven = document.querySelector("#seven");
+let eight = document.querySelector("#eight");
+let nine = document.querySelector("#nine");
+let ten = document.querySelector("#zero");
+
+let btn = document.querySelector(".column button");
+
+// DISPLAY
+
+let display = document.querySelector("#display");
+
+display.textContent = "0";
+
+// BUTTON INPUTS
+
+one.addEventListener('click', () => {display.textContent = "1";})
+two.addEventListener('click', () => {display.textContent = "2";})
+three.addEventListener('click', () => {display.textContent = "3";})
+four.addEventListener('click', () => {display.textContent = "4";})
+five.addEventListener('click', () => {display.textContent = "5";})
+six.addEventListener('click', () => {display.textContent = "6";})
+seven.addEventListener('click', () => {display.textContent = "7";})
+eight.addEventListener('click', () => {display.textContent = "8";})
+nine.addEventListener('click', () => {display.textContent = "9";})
+zero.addEventListener('click', () => {display.textContent = "0";})
+
+
