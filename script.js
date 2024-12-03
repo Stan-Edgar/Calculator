@@ -54,27 +54,42 @@ let six = document.querySelector("#six");
 let seven = document.querySelector("#seven");
 let eight = document.querySelector("#eight");
 let nine = document.querySelector("#nine");
-let ten = document.querySelector("#zero");
+let zero = document.querySelector("#zero");
 
-let btn = document.querySelector(".column button");
+// OPERATORS
+let plus = document.querySelector("#add");
+let minus = document.querySelector('#subtract');
+let times = document.querySelector('#multiply');
+let division = document.querySelector('#divide');
+
+// SPECIAL
+
+let clear = document.querySelector('#clear');
+let aClear = document.querySelector('#aClear')
 
 // DISPLAY
 
 let display = document.querySelector("#display");
-
+let para = document.querySelector('#display p');
 display.textContent = "0";
 
 // BUTTON INPUTS
 
-one.addEventListener('click', () => {display.textContent = "1";})
-two.addEventListener('click', () => {display.textContent = "2";})
-three.addEventListener('click', () => {display.textContent = "3";})
-four.addEventListener('click', () => {display.textContent = "4";})
-five.addEventListener('click', () => {display.textContent = "5";})
-six.addEventListener('click', () => {display.textContent = "6";})
-seven.addEventListener('click', () => {display.textContent = "7";})
-eight.addEventListener('click', () => {display.textContent = "8";})
-nine.addEventListener('click', () => {display.textContent = "9";})
-zero.addEventListener('click', () => {display.textContent = "0";})
+// --> numbers
+one.addEventListener('click', () => {display.textContent += "1";});
+two.addEventListener('click', () => {display.textContent += "2";});
+three.addEventListener('click', () => {display.textContent += "3";});
+four.addEventListener('click', () => {display.textContent += "4";});
+five.addEventListener('click', () => {display.textContent += "5";});
+six.addEventListener('click', () => {display.textContent += "6";});
+seven.addEventListener('click', () => {display.textContent += "7";});
+eight.addEventListener('click', () => {display.textContent += "8";});
+nine.addEventListener('click', () => {display.textContent += "9";});
+zero.addEventListener('click', () => {display.textContent += "0";});
+
+// --> clear
+clear.addEventListener('click', () => {display.textContent = ""});
+aClear.addEventListener('click', () => {display.textContent = "";});
+
 
 
