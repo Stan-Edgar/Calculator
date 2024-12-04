@@ -1,6 +1,6 @@
 function add(a, b) {
     return a + b;
-}
+};
 
 // console.log(add(1, 2))
 
@@ -22,20 +22,19 @@ function divide(a, b) {
 
 // console.log(divide(10, 2))
 
-let expression = null;
 let num1 = 10;
 let operator = "-";
 let num2 = 2;
 
-function operate(op, num1, num2) {
+function operate(op, a, b) {
     if(op === "+"){
-        return add(num1, num2)
+        return add(a, b)
     } else if (op === "-"){
-        return subtract(num1, num2)
+        return subtract(a, b)
     } else if (op === "*"){
-        return multiply(num1, num2)
+        return multiply(a, b)
     } else if (op === "/"){
-        return divide(num1, num2)
+        return divide(a, b)
     } else {
         console.log("Error: Invalid Operator")
     }
@@ -66,30 +65,79 @@ let division = document.querySelector('#divide');
 
 let clear = document.querySelector('#clear');
 let aClear = document.querySelector('#aClear')
+let equal = document.querySelector("#equal")
 
 // DISPLAY
 
 let display = document.querySelector("#display");
 let para = document.querySelector('#display p');
-display.textContent = "0";
+
+let output = display.innerHTML = "0";
+
+let btn = document.querySelector('#column button');
 
 // BUTTON INPUTS
 
 // --> numbers
-one.addEventListener('click', () => {display.textContent += "1";});
-two.addEventListener('click', () => {display.textContent += "2";});
-three.addEventListener('click', () => {display.textContent += "3";});
-four.addEventListener('click', () => {display.textContent += "4";});
-five.addEventListener('click', () => {display.textContent += "5";});
-six.addEventListener('click', () => {display.textContent += "6";});
-seven.addEventListener('click', () => {display.textContent += "7";});
-eight.addEventListener('click', () => {display.textContent += "8";});
-nine.addEventListener('click', () => {display.textContent += "9";});
-zero.addEventListener('click', () => {display.textContent += "0";});
+one.addEventListener('click', () => {display.innerHTML += "1";});
+two.addEventListener('click', () => {display.innerHTML += "2";});
+three.addEventListener('click', () => {display.innerHTML += "3";});
+four.addEventListener('click', () => {display.innerHTML += "4";});
+five.addEventListener('click', () => {display.innerHTML += "5";});
+six.addEventListener('click', () => {display.innerHTML += "6";});
+seven.addEventListener('click', () => {display.innerHTML += "7";});
+eight.addEventListener('click', () => {display.innerHTML += "8";});
+nine.addEventListener('click', () => {display.innerHTML += "9";});
+zero.addEventListener('click', () => {display.innerHTML += "0";});
 
 // --> clear
-clear.addEventListener('click', () => {display.textContent = ""});
-aClear.addEventListener('click', () => {display.textContent = "";});
+clear.addEventListener('click', () => {display.innerHTML = "";});
+aClear.addEventListener('click', () => {display.innerHTML = "";});
 
+
+// Array
+ let arr = []
+
+// --> Operators
+
+plus.addEventListener('click', () => {
+arr.push(display.innerHTML);
+operator = "+";
+display.innerHTML = "";
+});
+
+minus.addEventListener('click', () => {
+    arr.push(display.innerHTML);
+    operator = "-";
+    display.innerHTML = "";
+});
+
+times.addEventListener('click', () => {
+    arr.push(display.innerHTML);
+    operator = "*";
+    display.innerHTML = "";
+});
+
+division.addEventListener('click', () => {
+    arr.push(display.innerHTML);
+    operator = "/";
+    display.innerHTML = "";
+});
+
+
+
+// --> Output
+
+
+equal.addEventListener('click', () => {
+
+    arr.push(display.innerHTML);
+    console.log(arr);
+
+    arr = arr.reduce( (acc, index ) => acc.concat(+index), []);
+    display.innerHTML = (operate(operator, arr[0], arr[1]));
+
+    arr.splice(0, arr.length);
+})
 
 
