@@ -104,6 +104,8 @@ plus.addEventListener('click', () => {
 arr.push(display.innerHTML);
 operator = "+";
 display.innerHTML = "";
+
+
 });
 
 minus.addEventListener('click', () => {
@@ -128,15 +130,28 @@ division.addEventListener('click', () => {
 
 // --> Output
 
-
 equal.addEventListener('click', () => {
+
+    let length = arr.length
 
     arr.push(display.innerHTML);
     console.log(arr);
 
     arr = arr.reduce( (acc, index ) => acc.concat(+index), []);
-    display.innerHTML = (operate(operator, arr[0], arr[1]));
+   
+   
 
+    // Does nothing if only one number was entered.
+    if (arr.length === 1) {
+        return
+    } 
+        result = (operate(operator, arr[0], arr[1]));
+        display.innerHTML = result;
+        
+    if (arr.length > 2) {
+        display.innerHTML =  operate(operator, result, arr[2]);
+        console.log(arr);
+    }
     arr.splice(0, arr.length);
 })
 
