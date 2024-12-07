@@ -91,8 +91,8 @@ nine.addEventListener('click', () => {display.innerHTML += "9";});
 zero.addEventListener('click', () => {display.innerHTML += "0";});
 
 // --> clear
-clear.addEventListener('click', () => {display.innerHTML = "";});
-aClear.addEventListener('click', () => {display.innerHTML = "";});
+clear.addEventListener('click', () => {display.innerHTML = ""; arr.splice(0, arr.length)});
+aClear.addEventListener('click', () => {display.innerHTML = ""; arr.splice(0, arr.length)});
 
 
 // Array
@@ -145,8 +145,12 @@ equal.addEventListener('click', () => {
     if (arr.length === 1) {
         return
     } 
-        result = (operate(operator, arr[0], arr[1]));
+        result = Math.round((operate(operator, arr[0], arr[1]) * 100) / 100);
         display.innerHTML = result;
+
+        if (arr[1] === 0) {
+            display.innerHTML = "Chop Rice";
+        }
         
     if (arr.length > 2) {
         display.innerHTML =  operate(operator, result, arr[2]);
